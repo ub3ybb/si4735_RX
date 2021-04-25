@@ -1,0 +1,87 @@
+Removed Pin From Net: NetName=LOUT Pin=DD1-12
+Removed Member From Class: ClassName=Sheet1 Member=HL1
+Added Component: Designator=C4(C_0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R72A104MA35-01.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Type"; Value = "Capasitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GRM188R72A104MA35D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1µF"; VariantName = "[No Variations]"
+Added Component: Designator=HL?(LED_0805_GREEN)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R?(R_0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.bourns.com/pdfs/chpreztr.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Type"; Value = "Resistor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Bourns Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CR0603-FX-6800ELF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "680 ŒÏ"; VariantName = "[No Variations]"
+Added Component: Designator=SB2(KLS7-TS6601)
+Add component. Clean all parameters for all variants
+Added Component: Designator=SB3(KLS7-TS6601)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=VDD Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=GND Pin=C?-1
+Added Pin To Net: NetName=ENC_B Pin=DD1-1
+Added Pin To Net: NetName=AVC Pin=DD1-2
+Added Pin To Net: NetName=VOL+ Pin=DD1-10
+Added Pin To Net: NetName=VOL- Pin=DD1-11
+Added Pin To Net: NetName=BAND+ Pin=DD1-12
+Added Pin To Net: NetName=BAND- Pin=DD1-13
+Added Pin To Net: NetName=AGC Pin=DD1-14
+Added Pin To Net: NetName=STEP Pin=DD1-15
+Added Pin To Net: NetName=SDIO Pin=DD1-27
+Added Pin To Net: NetName=SCLK Pin=DD1-28
+Added Pin To Net: NetName=ENC_A Pin=DD1-32
+Added Pin To Net: NetName=GND Pin=DD?-7
+Added Pin To Net: NetName=GND Pin=DD?-18
+Added Pin To Net: NetName=GND Pin=DD?-21
+Added Pin To Net: NetName=GND Pin=DD?-25
+Added Pin To Net: NetName=GND Pin=DD?-26
+Added Pin To Net: NetName=GND Pin=HG?-1
+Added Pin To Net: NetName=VDD Pin=HG?-2
+Added Pin To Net: NetName=SCLK Pin=HG?-3
+Added Pin To Net: NetName=SDIO Pin=HG?-4
+Added Pin To Net: NetName=GND Pin=HL2-2
+Added Pin To Net: NetName=GND Pin=HL3-2
+Added Pin To Net: NetName=GND Pin=HL?-2
+Added Pin To Net: NetName=VDD Pin=R?-2
+Added Pin To Net: NetName=GND Pin=SB2-1
+Added Pin To Net: NetName=GND Pin=SB2-1
+Added Pin To Net: NetName=GND Pin=SB3-1
+Added Pin To Net: NetName=GND Pin=SB3-1
+Added Pin To Net: NetName=BFO Pin=DD1-16
+Added Pin To Net: NetName=BFO Pin=SB3-2
+Added Pin To Net: NetName=BFO Pin=SB3-2
+Added Net: Name=BFO
+Added Pin To Net: NetName=BW Pin=DD1-9
+Added Pin To Net: NetName=BW Pin=SB2-2
+Added Pin To Net: NetName=BW Pin=SB2-2
+Added Net: Name=BW
+Added Pin To Net: NetName=NetHL?_1 Pin=HL?-1
+Added Pin To Net: NetName=NetHL?_1 Pin=R?-1
+Added Net: Name=NetHL?_1
+Added Pin To Net: NetName=NetXS?_0 Pin=XS?-0
+Added Pin To Net: NetName=NetXS?_0 Pin=XS?-0
+Added Pin To Net: NetName=NetXS?_0 Pin=XS?-4
+Added Net: Name=NetXS?_0
+Added Pin To Net: NetName=RX Pin=DD1-31
+Added Pin To Net: NetName=RX Pin=DD?-5
+Added Net: Name=RX
+Added Pin To Net: NetName=TX Pin=DD1-30
+Added Pin To Net: NetName=TX Pin=DD?-1
+Added Net: Name=TX
+Added Member To Class: ClassName=Sheet1 Member=Component C4 0,1 ÏÍ
+Added Member To Class: ClassName=Sheet1 Member=Component C? 0,1 ÏÍ
+Added Member To Class: ClassName=Sheet1 Member=Component HL? BL-LS0805PGC
+Added Member To Class: ClassName=Sheet1 Member=Component L? 2.2 ÏÍ√Ì
+Added Member To Class: ClassName=Sheet1 Member=Component L? BLM21P
+Added Member To Class: ClassName=Sheet1 Member=Component R? 680 ŒÏ
+Added Member To Class: ClassName=Sheet1 Member=Component R? 680 ŒÏ
+Added Member To Class: ClassName=Sheet1 Member=Component SB2 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB3 KLS7-TS6601
+Added Room: Name=Sheet1

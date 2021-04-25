@@ -1,0 +1,115 @@
+Removed Pin From Net: NetName=RF Pin=L1-1
+Removed Pin From Net: NetName=NetC10_2 Pin=L1-2
+Removed Pin From Net: NetName=RF Pin=L2-1
+Removed Pin From Net: NetName=NetC12_2 Pin=L2-2
+Removed Member From Class: ClassName=Sheet1 Member=L1
+Removed Member From Class: ClassName=Sheet1 Member=L2
+Removed Member From Class: ClassName=Sheet1 Member=XS2
+Added Component: Designator=C?(C_0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R72A104MA35-01.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Type"; Value = "Capasitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GRM188R72A104MA35D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1µF"; VariantName = "[No Variations]"
+Added Component: Designator=C?(C_0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R72A104MA35-01.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Type"; Value = "Capasitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GRM188R72A104MA35D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1µF"; VariantName = "[No Variations]"
+Added Component: Designator=DD?(SSOP-28 (MO-150-AH))
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Code_JEDEC"; Value = "MO-150-AH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "SOP, 28-Leads, Body 10,2x5,3mm (max), Pitch 0,65mm, IPC Low Density"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "SSOP-28 (MO-150-AH)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Temperature Range"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=HL2(LED_0805_GREEN)
+Add component. Clean all parameters for all variants
+Added Component: Designator=HL3(LED_0805_GREEN)
+Add component. Clean all parameters for all variants
+Added Component: Designator=L?(FB_0805)
+Add component. Clean all parameters for all variants
+Added Component: Designator=L?(LQW18A)
+Add component. Clean all parameters for all variants
+Added Component: Designator=L?(LQW18A)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R?(R_0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.bourns.com/pdfs/chpreztr.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Type"; Value = "Resistor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Bourns Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CR0603-FX-6800ELF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "680 ŒÏ"; VariantName = "[No Variations]"
+Added Component: Designator=R?(R_0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.bourns.com/pdfs/chpreztr.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Type"; Value = "Resistor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Bourns Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CR0603-FX-6800ELF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "680 ŒÏ"; VariantName = "[No Variations]"
+Added Component: Designator=XS?(USB-B)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=RF Pin=L?-1
+Added Pin To Net: NetName=RF Pin=L?-1
+Added Pin To Net: NetName=NetC10_2 Pin=L?-2
+Added Pin To Net: NetName=NetC12_2 Pin=L?-2
+Added Pin To Net: NetName=5V_USB Pin=DD?-4
+Added Pin To Net: NetName=5V_USB Pin=DD?-20
+Added Pin To Net: NetName=5V_USB Pin=L?-2
+Added Net: Name=5V_USB
+Added Pin To Net: NetName=NetC?_2 Pin=C?-2
+Added Pin To Net: NetName=NetC?_2 Pin=DD?-17
+Added Net: Name=NetC?_2
+Added Pin To Net: NetName=NetDD?_15 Pin=DD?-15
+Added Pin To Net: NetName=NetDD?_15 Pin=XS?-3
+Added Net: Name=NetDD?_15
+Added Pin To Net: NetName=NetDD?_16 Pin=DD?-16
+Added Pin To Net: NetName=NetDD?_16 Pin=XS?-2
+Added Net: Name=NetDD?_16
+Added Pin To Net: NetName=NetDD?_22 Pin=DD?-22
+Added Pin To Net: NetName=NetDD?_22 Pin=R?-2
+Added Net: Name=NetDD?_22
+Added Pin To Net: NetName=NetDD?_23 Pin=DD?-23
+Added Pin To Net: NetName=NetDD?_23 Pin=R?-2
+Added Net: Name=NetDD?_23
+Added Pin To Net: NetName=NetHL2_1 Pin=HL2-1
+Added Pin To Net: NetName=NetHL2_1 Pin=R?-1
+Added Net: Name=NetHL2_1
+Added Pin To Net: NetName=NetHL3_1 Pin=HL3-1
+Added Pin To Net: NetName=NetHL3_1 Pin=R?-1
+Added Net: Name=NetHL3_1
+Added Pin To Net: NetName=RXD/ Pin=DD?-5
+Added Net: Name=RXD/
+Added Pin To Net: NetName=TXD/ Pin=DD?-1
+Added Net: Name=TXD/
+Added Pin To Net: NetName=USB_GND Pin=C?-1
+Added Pin To Net: NetName=USB_GND Pin=C?-1
+Added Pin To Net: NetName=USB_GND Pin=DD?-7
+Added Pin To Net: NetName=USB_GND Pin=DD?-18
+Added Pin To Net: NetName=USB_GND Pin=DD?-21
+Added Pin To Net: NetName=USB_GND Pin=DD?-25
+Added Pin To Net: NetName=USB_GND Pin=DD?-26
+Added Pin To Net: NetName=USB_GND Pin=HL2-2
+Added Pin To Net: NetName=USB_GND Pin=HL3-2
+Added Pin To Net: NetName=USB_GND Pin=XS?-0
+Added Pin To Net: NetName=USB_GND Pin=XS?-0
+Added Pin To Net: NetName=USB_GND Pin=XS?-4
+Added Net: Name=USB_GND
+Added Member To Class: ClassName=Sheet1 Member=Component C? 0,1 ÏÍ
+Added Member To Class: ClassName=Sheet1 Member=Component C? 0,1 ÏÍ
+Added Member To Class: ClassName=Sheet1 Member=Component DD? FT232RL
+Added Member To Class: ClassName=Sheet1 Member=Component HL2 BL-LS0805PGC
+Added Member To Class: ClassName=Sheet1 Member=Component HL3 BL-LS0805PGC
+Added Member To Class: ClassName=Sheet1 Member=Component L? BLM21P
+Added Member To Class: ClassName=Sheet1 Member=Component L? 2.2 ÏÍ√Ì
+Added Member To Class: ClassName=Sheet1 Member=Component L? 2.2 ÏÍ√Ì
+Added Member To Class: ClassName=Sheet1 Member=Component R? 680 ŒÏ
+Added Member To Class: ClassName=Sheet1 Member=Component R? 680 ŒÏ
+Added Member To Class: ClassName=Sheet1 Member=Component XS? 292304-2
+Added Room: Name=Sheet1

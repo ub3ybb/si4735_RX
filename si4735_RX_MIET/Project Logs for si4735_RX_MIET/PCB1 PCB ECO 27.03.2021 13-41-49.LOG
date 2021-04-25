@@ -1,0 +1,79 @@
+Removed Pin From Net: NetName=ENC_A Pin=BR1-A
+Removed Pin From Net: NetName=ENC_B Pin=BR1-B
+Removed Pin From Net: NetName=GND Pin=BR1-C
+Removed Pin From Net: NetName=STEP-MOSI Pin=BR1-D
+Removed Pin From Net: NetName=GND Pin=BR1-E
+Removed Member From Class: ClassName=Sheet1 Member=BR1
+Added Component: Designator=BR?(EC11)
+Added Component: Designator=BR?(EC11)
+Added Component: Designator=C17(C_0603)
+Add component (AddParameter): Name = "Component Type"; Value = "Capasitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R72A104MA35-01.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GRM188R72A104MA35D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1µF"; VariantName = "[No Variations]"
+Added Component: Designator=C18(C_0805)
+Added Component: Designator=C?(C_0603)
+Add component (AddParameter): Name = "Component Type"; Value = "Capasitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R72A104MA35-01.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GRM188R72A104MA35D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1µF"; VariantName = "[No Variations]"
+Added Component: Designator=HL1(LED_0603_GREEN)
+Added Component: Designator=R9(R_0603)
+Add component (AddParameter): Name = "Component Type"; Value = "Resistor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.bourns.com/pdfs/chpreztr.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Bourns Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CR0603-FX-1002ELF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10 ê"; VariantName = "[No Variations]"
+Added Component: Designator=R10(R_0603)
+Add component (AddParameter): Name = "Component Type"; Value = "Resistor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.bourns.com/pdfs/chpreztr.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Bourns Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CR0603-FX-1002ELF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10 ê"; VariantName = "[No Variations]"
+Added Component: Designator=R?(R_0603)
+Add component (AddParameter): Name = "Component Type"; Value = "Resistor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.bourns.com/pdfs/chpreztr.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Bourns Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CR0603-FX-1002ELF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10 êÎì"; VariantName = "[No Variations]"
+Added Component: Designator=VD4(SOD-80)
+Added Pin To Net: NetName=ENC_A Pin=BR?-A
+Added Pin To Net: NetName=ENC_B Pin=BR?-B
+Added Pin To Net: NetName=GND Pin=BR?-C
+Added Pin To Net: NetName=GND Pin=BR?-D
+Added Pin To Net: NetName=STEP-MOSI Pin=BR?-E
+Added Pin To Net: NetName=5V Pin=C17-1
+Added Pin To Net: NetName=GND Pin=C17-2
+Added Pin To Net: NetName=NetC18_1 Pin=C18-1
+Added Pin To Net: NetName=GND Pin=C18-2
+Added Pin To Net: NetName=STEP-MOSI Pin=C?-1
+Added Pin To Net: NetName=GND Pin=C?-2
+Added Pin To Net: NetName=NetHL1_1 Pin=HL1-1
+Added Pin To Net: NetName=NetDA2_1 Pin=HL1-2
+Added Pin To Net: NetName=CELL Pin=R9-1
+Added Pin To Net: NetName=PWR Pin=R9-2
+Added Pin To Net: NetName=GND Pin=R10-1
+Added Pin To Net: NetName=PWR_B Pin=R10-2
+Added Pin To Net: NetName=VDD Pin=R?-1
+Added Pin To Net: NetName=STEP-MOSI Pin=R?-2
+Added Pin To Net: NetName=PWR_B Pin=VD4-1
+Added Pin To Net: NetName=NetVD4_2 Pin=VD4-2
+Added Member To Class: ClassName=Sheet1 Member=Component BR? EC11E15244C0
+Added Member To Class: ClassName=Sheet1 Member=Component BR? EC11E15244C0
+Added Member To Class: ClassName=Sheet2 Member=Component C17 0,1 ìê
+Added Member To Class: ClassName=Sheet2 Member=Component C18 0,1 ìê
+Added Member To Class: ClassName=Sheet1 Member=Component C? 0,1 ìê
+Added Member To Class: ClassName=Sheet2 Member=Component HL1 BL-HGK36G
+Added Member To Class: ClassName=Sheet2 Member=Component R9 10 ê
+Added Member To Class: ClassName=Sheet2 Member=Component R10 10 ê
+Added Member To Class: ClassName=Sheet1 Member=Component R? 10 êÎì
+Added Member To Class: ClassName=Sheet2 Member=Component VD4 LL4148-GS08
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2

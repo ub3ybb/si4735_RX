@@ -1,0 +1,25 @@
+Removed Pin From Net: NetName=ENC_A Pin=BR?-A
+Removed Pin From Net: NetName=ENC_B Pin=BR?-B
+Removed Pin From Net: NetName=GND Pin=BR?-C
+Removed Member From Class: ClassName=Sheet1 Member=BR?
+Change Component Designator: OldDesignator=BR? NewDesignator=BR1
+Change Component Designator: OldDesignator=DA? NewDesignator=DA1
+Change Component Designator: OldDesignator=VD? NewDesignator=VD3
+Change Component Designator: OldDesignator=VD? NewDesignator=VD4
+Change Component Designator: OldDesignator=XP? NewDesignator=XP3
+Change Component Designator: OldDesignator=XP? NewDesignator=XP4
+Added Pin To Net: NetName=ENC_A Pin=BR1-A
+Added Pin To Net: NetName=ENC_B Pin=BR1-B
+Added Pin To Net: NetName=GND Pin=BR1-C
+Change Net Name : Old Net Name=NetVD?_1 New Net Name=NetVD3_1
+Added Pin To Net: NetName=NetVD4_1 Pin=VD4-1
+Added Pin To Net: NetName=NetVD4_1 Pin=XS2-1
+Added Net: Name=NetVD4_1
+Added Member To Class: ClassName=Sheet1 Member=Component BR1 PEC16-4220F-S0024
+Added Member To Class: ClassName=Sheet1 Member=Component C4 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component C5 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component C6 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component SB2 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB3 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component VD4 SS14
+Added Member To Class: ClassName=Sheet1 Member=Component XP3 DG308-2.54-02P

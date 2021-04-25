@@ -1,0 +1,27 @@
+Removed Pin From Net: NetName=NetC24_1 Pin=C25-1
+Removed Pin From Net: NetName=RF Pin=DD1-9
+Removed Pin From Net: NetName=RF Pin=L1-1
+Removed Pin From Net: NetName=LOUT Pin=R17-1
+Removed Pin From Net: NetName=NetDA1_3 Pin=R17-2
+Removed Pin From Net: NetName=GND Pin=R17-3
+Removed Pin From Net: NetName=RF Pin=VD2-1
+Removed Pin From Net: NetName=RF Pin=VD2-2
+Removed Member From Class: ClassName=RF Member=C1
+Removed Member From Class: ClassName=AUDIO Member=C25
+Removed Member From Class: ClassName=RF Member=L1
+Removed Member From Class: ClassName=AUDIO Member=R17
+Removed Member From Class: ClassName=RF Member=VD2
+Added Component: Designator=C?(Ê50-35 - 10x12.5)
+Added Component: Designator=R?(PTV09A-1)
+Added Pin To Net: NetName=NetC24_1 Pin=C?-1
+Added Pin To Net: NetName=NetXP2_2 Pin=C?-2
+Added Pin To Net: NetName=LOUT Pin=R?-1
+Added Pin To Net: NetName=NetDA1_3 Pin=R?-2
+Added Pin To Net: NetName=GND Pin=R?-3
+Change Net Name : Old Net Name=NetXP2_2 New Net Name=NetC?_2
+Added Pin To Net: NetName=RFIN_Si Pin=C3-1
+Added Pin To Net: NetName=RFIN_Si Pin=C4-1
+Added Pin To Net: NetName=RFIN_Si Pin=VD1-3
+Added Net: Name=RFIN_Si
+Added Member To Class: ClassName=AUDIO Member=Component C? 47ìê
+Added Member To Class: ClassName=AUDIO Member=Component R? PTV09A-4225F-B103

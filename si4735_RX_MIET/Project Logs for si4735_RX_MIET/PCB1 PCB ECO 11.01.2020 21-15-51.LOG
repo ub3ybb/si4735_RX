@@ -1,0 +1,11 @@
+Removed Member From Class: ClassName=Sheet1 Member=HG1
+Added Component: Designator=HG?(OLED Display 128x64)
+Add component. Clean all parameters for all variants
+Added Member To Class: ClassName=Sheet1 Member=Component C8 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component DD1 ATmega328-AU
+Added Member To Class: ClassName=Sheet1 Member=Component HG? OLED Display 128x64
+Added Member To Class: ClassName=Sheet1 Member=Component HL2 BL-LS0805PGC
+Added Member To Class: ClassName=Sheet1 Member=Component R6 4,7 ך־ל
+Added Member To Class: ClassName=Sheet1 Member=Component SB2 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component XS1 PJ-317
+Added Room: Name=Sheet1

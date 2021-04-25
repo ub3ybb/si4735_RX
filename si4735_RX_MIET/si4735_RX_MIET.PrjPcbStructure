@@ -1,0 +1,5 @@
+Record=TopLevelDocument|FileName=AUDIO.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=AUDIO.SchDoc|FileName=MAIN.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=AUDIO.SchDoc|FileName=MCU.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=AUDIO.SchDoc|FileName=PWR.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=AUDIO.SchDoc|FileName=RF.SchDoc|SheetNumber=1

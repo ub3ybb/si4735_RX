@@ -1,0 +1,788 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD19\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">16.01.2020</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">19:25:28</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc" class="file"><acronym title="C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc">C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">148</td></tr>
+</table>
+</td>
+</table><a name="ID3NLYITU5XS3UPSXOJHHO1UMS0CWUSWUW2A3NH5HVUYH4MT0Z52"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGQIWEAKDRLDROAO4GEINBP35AFEAPMAON53DLQNRLPGS22DIFDCI">Clearance Constraint (Gap=0.13mm) (All),(All)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCRVMOOONIJKZLS45KD5RLLSVLEPLEBBB3M0PORGVWV1ONKSIVVVN">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0B3Y4SWG2B3KVLZB1BNUXFJGHGKSI053VKLS5GUOVVTG03PLMCC">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGNKRQ40PAE5NDWKCBQU45FPJ2J3DCKDTA4XBRCCLXLK2RFNFUQWH">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBBWEJXTZ0L2DMTGFRQKS2QH0KJQ4F4ABUPW4X0M2K3540AWMF2UM">Width Constraint (Min=0.08mm) (Max=0.5mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZVCZYOUIZAVAGELZQBOL3B5N0JWF40NYZJQBRWFY0QFFBC1LF03B">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDX5VEOB30R51LGVASQTIPWE1U0BG3BCDZKMBZT3CAQMOOXAVN30QM">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVUU5DHACKWCMML5RCUIDFPYOWLFR0A3YKHM5LBCAKJJ0HFQU4T0">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDP5PCRH1I5DSE4T4VGHJZBMNVOMWCOV1SC52GDGYH2201GQ20DMG">Minimum Solder Mask Sliver (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">64</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKZHXPUTYIDWYCT0ILZUSKSEXLECXVS1SONZZEMORMZ1EQE4K55EJ">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">64</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVPFVJAIDHRK1ESDZKJ2V2O121HYYGPZSAPBU2TBRSTGTCQ0MTCZF">Silk to Silk (Clearance=0.1mm) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID12ZKYKL02VTKEHOHNCZ2S4W3HLOW1FTYXSMLZPDA4LYTSGYTBV0H">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRN3YYJRBXPHTPQEZ04SZKANIOBJC0AKPIHBGSXGFJ4TVCFK1KEDO">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (Disabled)(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">148</td>
+</tr>
+</table><br><a name="IDGQIWEAKDRLDROAO4GEINBP35AFEAPMAON53DLQNRLPGS22DIFDCI"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.13mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2095.04mil|Location2.X=2102.585mil|Location1.Y=2359.222mil|Location2.Y=2366.836mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2095.04mil|Location2.X=2102.585mil|Location1.Y=2359.222mil|Location2.Y=2366.836mil|Absolute=True">Clearance Constraint: (0.127mm &lt; 0.13mm) Between Pad C8-2(27.775mm,33mm) on Top Layer And Track (28.355mm,32.296mm)(28.504mm,32.445mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2677.525mil|Location2.X=2683.893mil|Location1.Y=3762.308mil|Location2.Y=3768.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2677.525mil|Location2.X=2683.893mil|Location1.Y=3762.308mil|Location2.Y=3768.676mil|Absolute=True">Clearance Constraint: (0.127mm &lt; 0.13mm) Between Pad HG1-HOLE(43.09mm,66.53mm) on Multi-Layer And Track (26.507mm,68.407mm)(75.193mm,68.407mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4279.678mil|Location2.X=4287.223mil|Location1.Y=2398.993mil|Location2.Y=2406.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4279.678mil|Location2.X=4287.223mil|Location1.Y=2398.993mil|Location2.Y=2406.608mil|Absolute=True">Clearance Constraint: (0.127mm &lt; 0.13mm) Between Track (80.6mm,33.65mm)(83.65mm,33.65mm) on Top Layer And Track (83.539mm,33mm)(87mm,36.461mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4241.284mil|Location2.X=4247.653mil|Location1.Y=2619.611mil|Location2.Y=2625.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4241.284mil|Location2.X=4247.653mil|Location1.Y=2619.611mil|Location2.Y=2625.979mil|Absolute=True">Clearance Constraint: (0.127mm &lt; 0.13mm) Between Track (81.7mm,38.2mm)(82.619mm,39.119mm) on Top Layer And Track (83mm,38.8mm)(83mm,44.1mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4241.284mil|Location2.X=4247.653mil|Location1.Y=2619.611mil|Location2.Y=2625.979mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4241.284mil|Location2.X=4247.653mil|Location1.Y=2619.611mil|Location2.Y=2625.979mil|Absolute=True">Clearance Constraint: (0.127mm &lt; 0.13mm) Between Track (82.619mm,39.119mm)(82.619mm,43.481mm) on Top Layer And Track (83mm,38.8mm)(83mm,44.1mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4241.284mil|Location2.X=4247.653mil|Location1.Y=2791.344mil|Location2.Y=2797.712mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4241.284mil|Location2.X=4247.653mil|Location1.Y=2791.344mil|Location2.Y=2797.712mil|Absolute=True">Clearance Constraint: (0.127mm &lt; 0.13mm) Between Track (82mm,44.1mm)(82.619mm,43.481mm) on Top Layer And Track (83mm,38.8mm)(83mm,44.1mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4279.678mil|Location2.X=4287.223mil|Location1.Y=2398.993mil|Location2.Y=2406.608mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4279.678mil|Location2.X=4287.223mil|Location1.Y=2398.993mil|Location2.Y=2406.608mil|Absolute=True">Clearance Constraint: (0.127mm &lt; 0.13mm) Between Track (83.539mm,33mm)(87mm,36.461mm) on Top Layer And Track (83.65mm,33.65mm)(85mm,35mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4332.828mil|Location2.X=4340.372mil|Location1.Y=2452.143mil|Location2.Y=2459.757mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4332.828mil|Location2.X=4340.372mil|Location1.Y=2452.143mil|Location2.Y=2459.757mil|Absolute=True">Clearance Constraint: (0.127mm &lt; 0.13mm) Between Track (83.539mm,33mm)(87mm,36.461mm) on Top Layer And Track (85mm,35mm)(85mm,36.5mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDX5VEOB30R51LGVASQTIPWE1U0BG3BCDZKMBZT3CAQMOOXAVN30QM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1119.454mil|Location2.X=1242.751mil|Location1.Y=1217.879mil|Location2.Y=1341.176mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1119.454mil|Location2.X=1242.751mil|Location1.Y=1217.879mil|Location2.Y=1341.176mil|Absolute=True">Hole Size Constraint: (3.1mm &gt; 2.54mm) Pad Free-HOLE(5mm,5mm) on Multi-Layer Actual Hole Size = 3.1mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1119.454mil|Location2.X=1242.751mil|Location1.Y=3580.084mil|Location2.Y=3703.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1119.454mil|Location2.X=1242.751mil|Location1.Y=3580.084mil|Location2.Y=3703.381mil|Absolute=True">Hole Size Constraint: (3.1mm &gt; 2.54mm) Pad Free-HOLE(5mm,65mm) on Multi-Layer Actual Hole Size = 3.1mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4662.761mil|Location2.X=4786.058mil|Location1.Y=1217.879mil|Location2.Y=1341.176mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4662.761mil|Location2.X=4786.058mil|Location1.Y=1217.879mil|Location2.Y=1341.176mil|Absolute=True">Hole Size Constraint: (3.1mm &gt; 2.54mm) Pad Free-HOLE(95mm,5mm) on Multi-Layer Actual Hole Size = 3.1mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4662.761mil|Location2.X=4786.058mil|Location1.Y=3580.084mil|Location2.Y=3703.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4662.761mil|Location2.X=4786.058mil|Location1.Y=3580.084mil|Location2.Y=3703.381mil|Absolute=True">Hole Size Constraint: (3.1mm &gt; 2.54mm) Pad Free-HOLE(95mm,65mm) on Multi-Layer Actual Hole Size = 3.1mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1693.863mil|Location2.X=1817.16mil|Location1.Y=3640.32mil|Location2.Y=3763.617mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1693.863mil|Location2.X=1817.16mil|Location1.Y=3640.32mil|Location2.Y=3763.617mil|Absolute=True">Hole Size Constraint: (3.1mm &gt; 2.54mm) Pad HG1-HOLE(19.59mm,66.53mm) on Multi-Layer Actual Hole Size = 3.1mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1701.737mil|Location2.X=1825.034mil|Location1.Y=2703.312mil|Location2.Y=2826.609mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1701.737mil|Location2.X=1825.034mil|Location1.Y=2703.312mil|Location2.Y=2826.609mil|Absolute=True">Hole Size Constraint: (3.1mm &gt; 2.54mm) Pad HG1-HOLE(19.79mm,42.73mm) on Multi-Layer Actual Hole Size = 3.1mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2619.06mil|Location2.X=2742.357mil|Location1.Y=3640.32mil|Location2.Y=3763.617mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2619.06mil|Location2.X=2742.357mil|Location1.Y=3640.32mil|Location2.Y=3763.617mil|Absolute=True">Hole Size Constraint: (3.1mm &gt; 2.54mm) Pad HG1-HOLE(43.09mm,66.53mm) on Multi-Layer Actual Hole Size = 3.1mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2626.934mil|Location2.X=2750.231mil|Location1.Y=2703.312mil|Location2.Y=2826.609mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2626.934mil|Location2.X=2750.231mil|Location1.Y=2703.312mil|Location2.Y=2826.609mil|Absolute=True">Hole Size Constraint: (3.1mm &gt; 2.54mm) Pad HG1-HOLE(43.29mm,42.73mm) on Multi-Layer Actual Hole Size = 3.1mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1465.91mil|Location2.X=1585.271mil|Location1.Y=3267.092mil|Location2.Y=3386.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1465.91mil|Location2.X=1585.271mil|Location1.Y=3267.092mil|Location2.Y=3386.452mil|Absolute=True">Hole Size Constraint: (3mm &gt; 2.54mm) Pad XP1-1(13.75mm,57mm) on Multi-Layer Actual Slot Hole Width = 3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1229.69mil|Location2.X=1349.05mil|Location1.Y=3267.092mil|Location2.Y=3386.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1229.69mil|Location2.X=1349.05mil|Location1.Y=3267.092mil|Location2.Y=3386.452mil|Absolute=True">Hole Size Constraint: (3mm &gt; 2.54mm) Pad XP1-2(7.75mm,57mm) on Multi-Layer Actual Slot Hole Width = 3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1347.8mil|Location2.X=1467.16mil|Location1.Y=3082.052mil|Location2.Y=3201.412mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1347.8mil|Location2.X=1467.16mil|Location1.Y=3082.052mil|Location2.Y=3201.412mil|Absolute=True">Hole Size Constraint: (3mm &gt; 2.54mm) Pad XP1-3(10.75mm,52.3mm) on Multi-Layer Actual Slot Hole Width = 3mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDP5PCRH1I5DSE4T4VGHJZBMNVOMWCOV1SC52GDGYH2201GQ20DMG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.2mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2107.58mil|Location2.X=2116.704mil|Location1.Y=2352.722mil|Location2.Y=2361.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2107.58mil|Location2.X=2116.704mil|Location1.Y=2352.722mil|Location2.Y=2361.845mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.147mm &lt; 0.2mm) Between Pad C11-1(29.225mm,31.75mm) on Top Layer And Pad C8-1(29.225mm,33mm) on Top Layer [Top Solder] Mask Sliver [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2050.493mil|Location2.X=2059.617mil|Location1.Y=2352.722mil|Location2.Y=2361.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2050.493mil|Location2.X=2059.617mil|Location1.Y=2352.722mil|Location2.Y=2361.845mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.147mm &lt; 0.2mm) Between Pad C11-2(27.775mm,31.75mm) on Top Layer And Pad C8-2(27.775mm,33mm) on Top Layer [Top Solder] Mask Sliver [0.147mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1434.351mil|Location2.X=1443.475mil|Location1.Y=2292.682mil|Location2.Y=2301.806mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1434.351mil|Location2.X=1443.475mil|Location1.Y=2292.682mil|Location2.Y=2301.806mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.2mm) Between Pad C1-2(12.125mm,31.5mm) on Top Layer And Pad L1-2(12.1mm,30.2mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3324.178mil|Location2.X=3333.302mil|Location1.Y=2737.501mil|Location2.Y=2746.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3324.178mil|Location2.X=3333.302mil|Location1.Y=2737.501mil|Location2.Y=2746.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad C12-1(60.175mm,42.7mm) on Top Layer And Pad C16-2(58.925mm,42.7mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1226.245mil|Location2.X=1235.369mil|Location1.Y=2808.367mil|Location2.Y=2817.491mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1226.245mil|Location2.X=1235.369mil|Location1.Y=2808.367mil|Location2.Y=2817.491mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.122mm &lt; 0.2mm) Between Pad C3-2(6.9mm,44.5mm) on Top Layer And Pad C5-2(5.625mm,44.5mm) on Top Layer [Top Solder] Mask Sliver [0.122mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3416.698mil|Location2.X=3425.822mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3416.698mil|Location2.X=3425.822mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-1(62.3mm,40.7mm) on Top Layer And Pad DD2-2(61.5mm,40.7mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2578.115mil|Location2.Y=2587.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2578.115mil|Location2.Y=2587.239mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-10(55.3mm,38.5mm) on Top Layer And Pad DD2-11(55.3mm,37.7mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2609.611mil|Location2.Y=2618.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2609.611mil|Location2.Y=2618.735mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-10(55.3mm,38.5mm) on Top Layer And Pad DD2-9(55.3mm,39.3mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2546.619mil|Location2.Y=2555.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2546.619mil|Location2.Y=2555.743mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-11(55.3mm,37.7mm) on Top Layer And Pad DD2-12(55.3mm,36.9mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2515.123mil|Location2.Y=2524.247mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2515.123mil|Location2.Y=2524.247mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-12(55.3mm,36.9mm) on Top Layer And Pad DD2-13(55.3mm,36.1mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2483.627mil|Location2.Y=2492.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2483.627mil|Location2.Y=2492.751mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-13(55.3mm,36.1mm) on Top Layer And Pad DD2-14(55.3mm,35.3mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2452.131mil|Location2.Y=2461.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2452.131mil|Location2.Y=2461.255mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-14(55.3mm,35.3mm) on Top Layer And Pad DD2-15(55.3mm,34.5mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2420.635mil|Location2.Y=2429.759mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.139mil|Location2.X=3148.263mil|Location1.Y=2420.635mil|Location2.Y=2429.759mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-15(55.3mm,34.5mm) on Top Layer And Pad DD2-16(55.3mm,33.7mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3227.722mil|Location2.X=3236.846mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3227.722mil|Location2.X=3236.846mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-17(56.7mm,32.3mm) on Top Layer And Pad DD2-18(57.5mm,32.3mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3259.218mil|Location2.X=3268.342mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3259.218mil|Location2.X=3268.342mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-18(57.5mm,32.3mm) on Top Layer And Pad DD2-19(58.3mm,32.3mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3290.714mil|Location2.X=3299.838mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3290.714mil|Location2.X=3299.838mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-19(58.3mm,32.3mm) on Top Layer And Pad DD2-20(59.1mm,32.3mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3385.202mil|Location2.X=3394.326mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3385.202mil|Location2.X=3394.326mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-2(61.5mm,40.7mm) on Top Layer And Pad DD2-3(60.7mm,40.7mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3322.21mil|Location2.X=3331.334mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3322.21mil|Location2.X=3331.334mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-20(59.1mm,32.3mm) on Top Layer And Pad DD2-21(59.9mm,32.3mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3353.706mil|Location2.X=3362.83mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3353.706mil|Location2.X=3362.83mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-21(59.9mm,32.3mm) on Top Layer And Pad DD2-22(60.7mm,32.3mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3385.202mil|Location2.X=3394.326mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3385.202mil|Location2.X=3394.326mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-22(60.7mm,32.3mm) on Top Layer And Pad DD2-23(61.5mm,32.3mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3416.698mil|Location2.X=3425.822mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3416.698mil|Location2.X=3425.822mil|Location1.Y=2332.052mil|Location2.Y=2341.176mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-23(61.5mm,32.3mm) on Top Layer And Pad DD2-24(62.3mm,32.3mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2420.635mil|Location2.Y=2429.759mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2420.635mil|Location2.Y=2429.759mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-25(63.7mm,33.7mm) on Top Layer And Pad DD2-26(63.7mm,34.5mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2452.131mil|Location2.Y=2461.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2452.131mil|Location2.Y=2461.255mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-26(63.7mm,34.5mm) on Top Layer And Pad DD2-27(63.7mm,35.3mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2483.627mil|Location2.Y=2492.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2483.627mil|Location2.Y=2492.751mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-27(63.7mm,35.3mm) on Top Layer And Pad DD2-28(63.7mm,36.1mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2515.123mil|Location2.Y=2524.247mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2515.123mil|Location2.Y=2524.247mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-28(63.7mm,36.1mm) on Top Layer And Pad DD2-29(63.7mm,36.9mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2546.619mil|Location2.Y=2555.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2546.619mil|Location2.Y=2555.743mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-29(63.7mm,36.9mm) on Top Layer And Pad DD2-30(63.7mm,37.7mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3353.706mil|Location2.X=3362.83mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3353.706mil|Location2.X=3362.83mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-3(60.7mm,40.7mm) on Top Layer And Pad DD2-4(59.9mm,40.7mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2578.115mil|Location2.Y=2587.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2578.115mil|Location2.Y=2587.239mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-30(63.7mm,37.7mm) on Top Layer And Pad DD2-31(63.7mm,38.5mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2609.611mil|Location2.Y=2618.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3469.848mil|Location2.X=3478.972mil|Location1.Y=2609.611mil|Location2.Y=2618.735mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-31(63.7mm,38.5mm) on Top Layer And Pad DD2-32(63.7mm,39.3mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3322.21mil|Location2.X=3331.334mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3322.21mil|Location2.X=3331.334mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-4(59.9mm,40.7mm) on Top Layer And Pad DD2-5(59.1mm,40.7mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3290.714mil|Location2.X=3299.838mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3290.714mil|Location2.X=3299.838mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-5(59.1mm,40.7mm) on Top Layer And Pad DD2-6(58.3mm,40.7mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3259.218mil|Location2.X=3268.342mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3259.218mil|Location2.X=3268.342mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-6(58.3mm,40.7mm) on Top Layer And Pad DD2-7(57.5mm,40.7mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3227.722mil|Location2.X=3236.845mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3227.722mil|Location2.X=3236.845mil|Location1.Y=2662.761mil|Location2.Y=2671.885mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad DD2-7(57.5mm,40.7mm) on Top Layer And Pad DD2-8(56.7mm,40.7mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2697.21mil|Location2.Y=2706.334mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2697.21mil|Location2.Y=2706.334mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-1(73.85mm,41.45mm) on Top Layer And Pad DD3-2(73.85mm,40.8mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2466.895mil|Location2.Y=2476.019mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2466.895mil|Location2.Y=2476.019mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-10(73.85mm,35.6mm) on Top Layer And Pad DD3-11(73.85mm,34.95mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2492.485mil|Location2.Y=2501.609mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2492.485mil|Location2.Y=2501.609mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-10(73.85mm,35.6mm) on Top Layer And Pad DD3-9(73.85mm,36.25mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2441.304mil|Location2.Y=2450.428mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2441.304mil|Location2.Y=2450.428mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-11(73.85mm,34.95mm) on Top Layer And Pad DD3-12(73.85mm,34.3mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2415.714mil|Location2.Y=2424.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2415.714mil|Location2.Y=2424.838mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-12(73.85mm,34.3mm) on Top Layer And Pad DD3-13(73.85mm,33.65mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2390.123mil|Location2.Y=2399.247mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2390.123mil|Location2.Y=2399.247mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-13(73.85mm,33.65mm) on Top Layer And Pad DD3-14(73.85mm,33mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2390.123mil|Location2.Y=2399.247mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2390.123mil|Location2.Y=2399.247mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-15(80.25mm,33mm) on Top Layer And Pad DD3-16(80.25mm,33.65mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2415.714mil|Location2.Y=2424.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2415.714mil|Location2.Y=2424.838mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-16(80.25mm,33.65mm) on Top Layer And Pad DD3-17(80.25mm,34.3mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2441.304mil|Location2.Y=2450.428mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2441.304mil|Location2.Y=2450.428mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-17(80.25mm,34.3mm) on Top Layer And Pad DD3-18(80.25mm,34.95mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2466.895mil|Location2.Y=2476.019mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2466.895mil|Location2.Y=2476.019mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-18(80.25mm,34.95mm) on Top Layer And Pad DD3-19(80.25mm,35.6mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2492.485mil|Location2.Y=2501.609mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2492.485mil|Location2.Y=2501.609mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-19(80.25mm,35.6mm) on Top Layer And Pad DD3-20(80.25mm,36.25mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2671.619mil|Location2.Y=2680.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2671.619mil|Location2.Y=2680.743mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-2(73.85mm,40.8mm) on Top Layer And Pad DD3-3(73.85mm,40.15mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2518.076mil|Location2.Y=2527.2mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2518.076mil|Location2.Y=2527.2mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-20(80.25mm,36.25mm) on Top Layer And Pad DD3-21(80.25mm,36.9mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2543.666mil|Location2.Y=2552.79mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2543.666mil|Location2.Y=2552.79mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-21(80.25mm,36.9mm) on Top Layer And Pad DD3-22(80.25mm,37.55mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2569.257mil|Location2.Y=2578.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2569.257mil|Location2.Y=2578.381mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-22(80.25mm,37.55mm) on Top Layer And Pad DD3-23(80.25mm,38.2mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2594.847mil|Location2.Y=2603.972mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2594.847mil|Location2.Y=2603.972mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-23(80.25mm,38.2mm) on Top Layer And Pad DD3-24(80.25mm,38.85mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2620.438mil|Location2.Y=2629.562mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2620.438mil|Location2.Y=2629.562mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-24(80.25mm,38.85mm) on Top Layer And Pad DD3-25(80.25mm,39.5mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2646.029mil|Location2.Y=2655.153mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2646.029mil|Location2.Y=2655.153mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-25(80.25mm,39.5mm) on Top Layer And Pad DD3-26(80.25mm,40.15mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2671.619mil|Location2.Y=2680.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2671.619mil|Location2.Y=2680.743mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-26(80.25mm,40.15mm) on Top Layer And Pad DD3-27(80.25mm,40.8mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2697.21mil|Location2.Y=2706.334mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4117.092mil|Location2.X=4126.216mil|Location1.Y=2697.21mil|Location2.Y=2706.334mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-27(80.25mm,40.8mm) on Top Layer And Pad DD3-28(80.25mm,41.45mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2646.029mil|Location2.Y=2655.153mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2646.029mil|Location2.Y=2655.153mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-3(73.85mm,40.15mm) on Top Layer And Pad DD3-4(73.85mm,39.5mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2620.438mil|Location2.Y=2629.562mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2620.438mil|Location2.Y=2629.562mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-4(73.85mm,39.5mm) on Top Layer And Pad DD3-5(73.85mm,38.85mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2594.847mil|Location2.Y=2603.972mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2594.847mil|Location2.Y=2603.972mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-5(73.85mm,38.85mm) on Top Layer And Pad DD3-6(73.85mm,38.2mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2569.257mil|Location2.Y=2578.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2569.257mil|Location2.Y=2578.381mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-6(73.85mm,38.2mm) on Top Layer And Pad DD3-7(73.85mm,37.55mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2543.666mil|Location2.Y=2552.79mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2543.666mil|Location2.Y=2552.79mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-7(73.85mm,37.55mm) on Top Layer And Pad DD3-8(73.85mm,36.9mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2518.076mil|Location2.Y=2527.2mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3865.123mil|Location2.X=3874.247mil|Location1.Y=2518.076mil|Location2.Y=2527.2mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.2mm) Between Pad DD3-8(73.85mm,36.9mm) on Top Layer And Pad DD3-9(73.85mm,36.25mm) on Top Layer [Top Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2229.627mil|Location2.X=2238.751mil|Location1.Y=2272.997mil|Location2.Y=2282.121mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2229.627mil|Location2.X=2238.751mil|Location1.Y=2272.997mil|Location2.Y=2282.121mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad R7-2(32.3mm,29.725mm) on Top Layer And Pad R8-2(32.3mm,30.975mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1491.501mil|Location2.X=1501.138mil|Location1.Y=3200.162mil|Location2.Y=3209.286mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1491.501mil|Location2.X=1501.138mil|Location1.Y=3200.162mil|Location2.Y=3209.286mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.148mm &lt; 0.2mm) Between Pad XP1-1(13.75mm,57mm) on Multi-Layer And Pad XP1-3(10.75mm,52.3mm) on Multi-Layer [Top Solder] Mask Sliver [0.148mm] / [Bottom Solder] Mask Sliver [0.148mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1314.336mil|Location2.X=1323.94mil|Location1.Y=3200.162mil|Location2.Y=3209.286mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1314.336mil|Location2.X=1323.94mil|Location1.Y=3200.162mil|Location2.Y=3209.286mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.148mm &lt; 0.2mm) Between Pad XP1-2(7.75mm,57mm) on Multi-Layer And Pad XP1-3(10.75mm,52.3mm) on Multi-Layer [Top Solder] Mask Sliver [0.148mm] / [Bottom Solder] Mask Sliver [0.148mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4364.336mil|Location2.X=4373.46mil|Location1.Y=2613.548mil|Location2.Y=2622.672mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4364.336mil|Location2.X=4373.46mil|Location1.Y=2613.548mil|Location2.Y=2622.672mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.157mm &lt; 0.2mm) Between Pad XS2-1(84.94mm,39mm) on Multi-Layer And Pad XS2-4(87mm,39mm) on Multi-Layer [Top Solder] Mask Sliver [0.157mm] / [Bottom Solder] Mask Sliver [0.157mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4365.517mil|Location2.X=4374.641mil|Location1.Y=2515.123mil|Location2.Y=2524.247mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4365.517mil|Location2.X=4374.641mil|Location1.Y=2515.123mil|Location2.Y=2524.247mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.2mm) Between Pad XS2-2(85mm,36.5mm) on Multi-Layer And Pad XS2-3(87mm,36.5mm) on Multi-Layer [Top Solder] Mask Sliver [0.097mm] / [Bottom Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDKZHXPUTYIDWYCT0ILZUSKSEXLECXVS1SONZZEMORMZ1EQE4K55EJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.485mil|Location2.X=3498.735mil|Location1.Y=2855.596mil|Location2.Y=2866.846mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3487.485mil|Location2.X=3498.735mil|Location1.Y=2855.596mil|Location2.Y=2866.846mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Area Fill (63.825mm,45.175mm) (64.2mm,46.25mm) on Top Overlay And Pad HL3-1(63.2mm,45.7mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3993.605mil|Location2.X=4004.855mil|Location1.Y=2835.443mil|Location2.Y=2847.805mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3993.605mil|Location2.X=4004.855mil|Location1.Y=2835.443mil|Location2.Y=2847.805mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.249mm &lt; 0.254mm) Between Area Fill (76.1mm,43.55mm) (76.475mm,44.625mm) on Top Overlay And Pad HL1-1(77.1mm,44.1mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.249mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3993.604mil|Location2.X=4004.854mil|Location1.Y=2918.12mil|Location2.Y=2930.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3993.604mil|Location2.X=4004.854mil|Location1.Y=2918.12mil|Location2.Y=2930.483mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.249mm &lt; 0.254mm) Between Area Fill (76.1mm,45.65mm) (76.475mm,46.725mm) on Top Overlay And Pad HL2-1(77.1mm,46.2mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.249mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.69mil|Location2.X=4485.94mil|Location1.Y=1742.411mil|Location2.Y=1753.661mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.69mil|Location2.X=4485.94mil|Location1.Y=1742.411mil|Location2.Y=1753.661mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad BR1-0(88.3mm,14.55mm) on Multi-Layer And Track (88.8mm,17.1mm)(88.8mm,21.53mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4024.16mil|Location2.X=4035.41mil|Location1.Y=1966.212mil|Location2.Y=1977.462mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4024.16mil|Location2.X=4035.41mil|Location1.Y=1966.212mil|Location2.Y=1977.462mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.231mm &lt; 0.254mm) Between Pad BR1-D(77.8mm,21.3mm) on Multi-Layer And Track (73.57mm,22.8mm)(80.3mm,22.8mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.231mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4221.011mil|Location2.X=4232.261mil|Location1.Y=1966.212mil|Location2.Y=1977.462mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4221.011mil|Location2.X=4232.261mil|Location1.Y=1966.212mil|Location2.Y=1977.462mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.231mm &lt; 0.254mm) Between Pad BR1-E(82.8mm,21.3mm) on Multi-Layer And Track (80.3mm,22.8mm)(87.53mm,22.8mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.231mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2116.422mil|Location2.X=2127.672mil|Location1.Y=2304.902mil|Location2.Y=2316.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2116.422mil|Location2.X=2127.672mil|Location1.Y=2304.902mil|Location2.Y=2316.152mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.225mm &lt; 0.254mm) Between Pad C11-1(29.225mm,31.75mm) on Top Layer And Text "R6" (28.9mm,30mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.225mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3140.561mil|Location2.X=3151.811mil|Location1.Y=2869.487mil|Location2.Y=2880.737mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3140.561mil|Location2.X=3151.811mil|Location1.Y=2869.487mil|Location2.Y=2880.737mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.214mm &lt; 0.254mm) Between Pad C14-1(54.242mm,45.058mm) on Top Layer And Text "C14" (53.483mm,47.215mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.214mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3087.149mil|Location2.X=3098.399mil|Location1.Y=2922.9mil|Location2.Y=2934.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3087.149mil|Location2.X=3098.399mil|Location1.Y=2922.9mil|Location2.Y=2934.15mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.214mm &lt; 0.254mm) Between Pad C14-2(52.758mm,46.542mm) on Top Layer And Text "C14" (53.483mm,47.215mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.214mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1448.974mil|Location2.X=1460.224mil|Location1.Y=1803.43mil|Location2.Y=1814.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1448.974mil|Location2.X=1460.224mil|Location1.Y=1803.43mil|Location2.Y=1814.68mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.106mm &lt; 0.254mm) Between Pad C2-1(12.475mm,18mm) on Top Layer And Text "VD1" (9.8mm,18.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.106mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1288.667mil|Location2.X=1299.917mil|Location1.Y=2807.855mil|Location2.Y=2819.105mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1288.667mil|Location2.X=1299.917mil|Location1.Y=2807.855mil|Location2.Y=2819.105mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C3-1(8.35mm,44.5mm) on Top Layer And Text "C3" (6.6mm,42.8mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1257.213mil|Location2.X=1268.463mil|Location1.Y=2807.855mil|Location2.Y=2819.105mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1257.213mil|Location2.X=1268.463mil|Location1.Y=2807.855mil|Location2.Y=2819.105mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C3-2(6.9mm,44.5mm) on Top Layer And Text "C3" (6.6mm,42.8mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1753.721mil|Location2.X=1764.971mil|Location1.Y=2528.671mil|Location2.Y=2539.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1753.721mil|Location2.X=1764.971mil|Location1.Y=2528.671mil|Location2.Y=2539.921mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.225mm &lt; 0.254mm) Between Pad C4-1(20.25mm,36.975mm) on Bottom Layer And Text "C4" (18.5mm,35.4mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.225mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1753.721mil|Location2.X=1764.971mil|Location1.Y=2481.999mil|Location2.Y=2493.249mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1753.721mil|Location2.X=1764.971mil|Location1.Y=2481.999mil|Location2.Y=2493.249mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.225mm &lt; 0.254mm) Between Pad C4-2(20.25mm,35.525mm) on Bottom Layer And Text "C4" (18.5mm,35.4mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.225mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1147.353mil|Location2.X=1158.603mil|Location1.Y=2807.855mil|Location2.Y=2819.105mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1147.353mil|Location2.X=1158.603mil|Location1.Y=2807.855mil|Location2.Y=2819.105mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C5-1(4.175mm,44.5mm) on Top Layer And Text "C5" (4mm,42.8mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1181.383mil|Location2.X=1192.633mil|Location1.Y=2807.855mil|Location2.Y=2819.105mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1181.383mil|Location2.X=1192.633mil|Location1.Y=2807.855mil|Location2.Y=2819.105mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C5-2(5.625mm,44.5mm) on Top Layer And Text "C5" (4mm,42.8mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2112.803mil|Location2.X=2124.053mil|Location1.Y=2398.41mil|Location2.Y=2409.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2112.803mil|Location2.X=2124.053mil|Location1.Y=2398.41mil|Location2.Y=2409.66mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.225mm &lt; 0.254mm) Between Pad C8-1(29.225mm,33mm) on Top Layer And Text "C11" (27.575mm,33.75mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.225mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2075.503mil|Location2.X=2086.753mil|Location1.Y=2398.41mil|Location2.Y=2409.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2075.503mil|Location2.X=2086.753mil|Location1.Y=2398.41mil|Location2.Y=2409.66mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.225mm &lt; 0.254mm) Between Pad C8-2(27.775mm,33mm) on Top Layer And Text "C11" (27.575mm,33.75mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.225mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3994.857mil|Location2.X=4006.107mil|Location1.Y=2786.345mil|Location2.Y=2797.595mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3994.857mil|Location2.X=4006.107mil|Location1.Y=2786.345mil|Location2.Y=2797.595mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL1-1(77.1mm,44.1mm) on Top Layer And Track (75.5mm,43.4mm)(76.5mm,43.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3994.857mil|Location2.X=4006.107mil|Location1.Y=2840.2mil|Location2.Y=2851.45mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3994.857mil|Location2.X=4006.107mil|Location1.Y=2840.2mil|Location2.Y=2851.45mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL1-1(77.1mm,44.1mm) on Top Layer And Track (75.5mm,44.8mm)(76.5mm,44.8mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3946.649mil|Location2.X=3957.899mil|Location1.Y=2786.345mil|Location2.Y=2797.595mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3946.649mil|Location2.X=3957.899mil|Location1.Y=2786.345mil|Location2.Y=2797.595mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL1-2(74.9mm,44.1mm) on Top Layer And Track (75.5mm,43.4mm)(76.5mm,43.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3946.649mil|Location2.X=3957.899mil|Location1.Y=2840.2mil|Location2.Y=2851.45mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3946.649mil|Location2.X=3957.899mil|Location1.Y=2840.2mil|Location2.Y=2851.45mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL1-2(74.9mm,44.1mm) on Top Layer And Track (75.5mm,44.8mm)(76.5mm,44.8mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3994.857mil|Location2.X=4006.107mil|Location1.Y=2869.022mil|Location2.Y=2880.272mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3994.857mil|Location2.X=4006.107mil|Location1.Y=2869.022mil|Location2.Y=2880.272mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL2-1(77.1mm,46.2mm) on Top Layer And Track (75.5mm,45.5mm)(76.5mm,45.5mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3994.857mil|Location2.X=4006.107mil|Location1.Y=2922.878mil|Location2.Y=2934.128mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3994.857mil|Location2.X=4006.107mil|Location1.Y=2922.878mil|Location2.Y=2934.128mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL2-1(77.1mm,46.2mm) on Top Layer And Track (75.5mm,46.9mm)(76.5mm,46.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3946.649mil|Location2.X=3957.899mil|Location1.Y=2869.022mil|Location2.Y=2880.272mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3946.649mil|Location2.X=3957.899mil|Location1.Y=2869.022mil|Location2.Y=2880.272mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL2-2(74.9mm,46.2mm) on Top Layer And Track (75.5mm,45.5mm)(76.5mm,45.5mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3946.649mil|Location2.X=3957.899mil|Location1.Y=2922.878mil|Location2.Y=2934.128mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3946.649mil|Location2.X=3957.899mil|Location1.Y=2922.878mil|Location2.Y=2934.128mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL2-2(74.9mm,46.2mm) on Top Layer And Track (75.5mm,46.9mm)(76.5mm,46.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3486.019mil|Location2.X=3497.269mil|Location1.Y=2849.337mil|Location2.Y=2860.587mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3486.019mil|Location2.X=3497.269mil|Location1.Y=2849.337mil|Location2.Y=2860.587mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL3-1(63.2mm,45.7mm) on Top Layer And Track (63.8mm,45mm)(64.8mm,45mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3486.019mil|Location2.X=3497.269mil|Location1.Y=2903.193mil|Location2.Y=2914.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3486.019mil|Location2.X=3497.269mil|Location1.Y=2903.193mil|Location2.Y=2914.443mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL3-1(63.2mm,45.7mm) on Top Layer And Track (63.8mm,46.4mm)(64.8mm,46.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3534.227mil|Location2.X=3545.477mil|Location1.Y=2849.337mil|Location2.Y=2860.587mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3534.227mil|Location2.X=3545.477mil|Location1.Y=2849.337mil|Location2.Y=2860.587mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL3-2(65.4mm,45.7mm) on Top Layer And Track (63.8mm,45mm)(64.8mm,45mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3534.227mil|Location2.X=3545.477mil|Location1.Y=2903.193mil|Location2.Y=2914.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3534.227mil|Location2.X=3545.477mil|Location1.Y=2903.193mil|Location2.Y=2914.443mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.127mm &lt; 0.254mm) Between Pad HL3-2(65.4mm,45.7mm) on Top Layer And Track (63.8mm,46.4mm)(64.8mm,46.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.127mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1689.555mil|Location2.X=1700.805mil|Location1.Y=2539.949mil|Location2.Y=2551.199mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1689.555mil|Location2.X=1700.805mil|Location1.Y=2539.949mil|Location2.Y=2551.199mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.253mm &lt; 0.254mm) Between Pad R2-1(17.487mm,36.913mm) on Top Layer And Text "R3" (18.2mm,37.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.253mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1724.943mil|Location2.X=1736.193mil|Location1.Y=2504.562mil|Location2.Y=2515.812mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1724.943mil|Location2.X=1736.193mil|Location1.Y=2504.562mil|Location2.Y=2515.812mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.253mm &lt; 0.254mm) Between Pad R2-2(18.513mm,35.887mm) on Top Layer And Text "R3" (18.2mm,37.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.253mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2071.797mil|Location2.X=2083.047mil|Location1.Y=2220.753mil|Location2.Y=2232.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2071.797mil|Location2.X=2083.047mil|Location1.Y=2220.753mil|Location2.Y=2232.003mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.15mm &lt; 0.254mm) Between Pad R5-2(27.8mm,28.5mm) on Top Layer And Text "R5" (27.1mm,29.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.15mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2114.096mil|Location2.X=2125.346mil|Location1.Y=2241.653mil|Location2.Y=2252.903mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2114.096mil|Location2.X=2125.346mil|Location1.Y=2241.653mil|Location2.Y=2252.903mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.218mm &lt; 0.254mm) Between Pad R6-2(29.4mm,29.3mm) on Top Layer And Text "R5" (27.1mm,29.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.218mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2142.663mil|Location2.X=2153.913mil|Location1.Y=2252.249mil|Location2.Y=2263.499mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2142.663mil|Location2.X=2153.913mil|Location1.Y=2252.249mil|Location2.Y=2263.499mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.15mm &lt; 0.254mm) Between Pad R6-2(29.4mm,29.3mm) on Top Layer And Text "R6" (28.9mm,30mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.15mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1564.257mil|Location2.X=1575.507mil|Location1.Y=3112.485mil|Location2.Y=3123.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1564.257mil|Location2.X=1575.507mil|Location1.Y=3112.485mil|Location2.Y=3123.735mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD3-1(15.75mm,51.1mm) on Top Layer And Track (14.25mm,51.7mm)(14.65mm,51.7mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=3112.485mil|Location2.Y=3123.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=3112.485mil|Location2.Y=3123.735mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD3-1(15.75mm,51.1mm) on Top Layer And Track (16.85mm,51.7mm)(17.25mm,51.7mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1564.257mil|Location2.X=1575.507mil|Location1.Y=2899.887mil|Location2.Y=2911.137mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1564.257mil|Location2.X=1575.507mil|Location1.Y=2899.887mil|Location2.Y=2911.137mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD3-2(15.75mm,46.9mm) on Top Layer And Track (14.25mm,46.3mm)(14.65mm,46.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1564.257mil|Location2.X=1575.507mil|Location1.Y=2915.635mil|Location2.Y=2926.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1564.257mil|Location2.X=1575.507mil|Location1.Y=2915.635mil|Location2.Y=2926.885mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD3-2(15.75mm,46.9mm) on Top Layer And Track (14.35mm,46.7mm)(14.65mm,46.7mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1564.257mil|Location2.X=1575.507mil|Location1.Y=2899.887mil|Location2.Y=2911.137mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1564.257mil|Location2.X=1575.507mil|Location1.Y=2899.887mil|Location2.Y=2911.137mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD3-2(15.75mm,46.9mm) on Top Layer And Track (14.65mm,46.3mm)(14.65mm,46.7mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=2899.887mil|Location2.Y=2911.137mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=2899.887mil|Location2.Y=2911.137mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD3-2(15.75mm,46.9mm) on Top Layer And Track (16.85mm,46.3mm)(16.85mm,46.5mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=2899.887mil|Location2.Y=2911.137mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=2899.887mil|Location2.Y=2911.137mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD3-2(15.75mm,46.9mm) on Top Layer And Track (16.85mm,46.3mm)(17.15mm,46.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=2899.887mil|Location2.Y=2911.137mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=2899.887mil|Location2.Y=2911.137mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD3-2(15.75mm,46.9mm) on Top Layer And Track (16.85mm,46.3mm)(17.25mm,46.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=2907.761mil|Location2.Y=2919.011mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=2907.761mil|Location2.Y=2919.011mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD3-2(15.75mm,46.9mm) on Top Layer And Track (16.85mm,46.5mm)(16.85mm,46.7mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=2915.635mil|Location2.Y=2926.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.155mil|Location2.X=1644.405mil|Location1.Y=2915.635mil|Location2.Y=2926.885mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD3-2(15.75mm,46.9mm) on Top Layer And Track (16.85mm,46.7mm)(17.15mm,46.7mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4195.162mil|Location2.X=4206.412mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4195.162mil|Location2.X=4206.412mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD4-1(81.1mm,49mm) on Top Layer And Track (81.7mm,47.5mm)(81.7mm,47.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4195.162mil|Location2.X=4206.412mil|Location1.Y=3040.635mil|Location2.Y=3051.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4195.162mil|Location2.X=4206.412mil|Location1.Y=3040.635mil|Location2.Y=3051.885mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD4-1(81.1mm,49mm) on Top Layer And Track (81.7mm,50.1mm)(81.7mm,50.5mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.564mil|Location2.X=3993.814mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.564mil|Location2.X=3993.814mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD4-2(76.9mm,49mm) on Top Layer And Track (76.3mm,47.5mm)(76.3mm,47.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.564mil|Location2.X=3993.814mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.564mil|Location2.X=3993.814mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD4-2(76.9mm,49mm) on Top Layer And Track (76.3mm,47.6mm)(76.3mm,47.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.564mil|Location2.X=3993.814mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.564mil|Location2.X=3993.814mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD4-2(76.9mm,49mm) on Top Layer And Track (76.3mm,47.9mm)(76.5mm,47.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.564mil|Location2.X=3993.814mil|Location1.Y=3040.635mil|Location2.Y=3051.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.564mil|Location2.X=3993.814mil|Location1.Y=3040.635mil|Location2.Y=3051.885mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD4-2(76.9mm,49mm) on Top Layer And Track (76.3mm,50.1mm)(76.3mm,50.5mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.564mil|Location2.X=3993.814mil|Location1.Y=3040.635mil|Location2.Y=3051.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.564mil|Location2.X=3993.814mil|Location1.Y=3040.635mil|Location2.Y=3051.885mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD4-2(76.9mm,49mm) on Top Layer And Track (76.3mm,50.1mm)(76.7mm,50.1mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3990.438mil|Location2.X=4001.688mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3990.438mil|Location2.X=4001.688mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD4-2(76.9mm,49mm) on Top Layer And Track (76.5mm,47.9mm)(76.7mm,47.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3998.312mil|Location2.X=4009.562mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3998.312mil|Location2.X=4009.562mil|Location1.Y=2971.737mil|Location2.Y=2982.987mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD4-2(76.9mm,49mm) on Top Layer And Track (76.7mm,47.6mm)(76.7mm,47.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3998.312mil|Location2.X=4009.562mil|Location1.Y=3040.635mil|Location2.Y=3051.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3998.312mil|Location2.X=4009.562mil|Location1.Y=3040.635mil|Location2.Y=3051.885mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad VD4-2(76.9mm,49mm) on Top Layer And Track (76.7mm,50.1mm)(76.7mm,50.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.538mil|Location2.X=4514.788mil|Location1.Y=2963.265mil|Location2.Y=2974.515mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4503.538mil|Location2.X=4514.788mil|Location1.Y=2963.265mil|Location2.Y=2974.515mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.22mm &lt; 0.254mm) Between Pad XS1-2(90.6mm,48.7mm) on Multi-Layer And Track (88.125mm,47.7mm)(97.6mm,47.7mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.22mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4501.251mil|Location2.X=4512.501mil|Location1.Y=3418.59mil|Location2.Y=3429.84mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4501.251mil|Location2.X=4512.501mil|Location1.Y=3418.59mil|Location2.Y=3429.84mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad XS1-5(90.6mm,58.7mm) on Multi-Layer And Track (88.125mm,59.7mm)(97.6mm,59.7mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.25mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1833.942mil|Location2.X=1845.192mil|Location1.Y=2139.592mil|Location2.Y=2150.842mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1833.942mil|Location2.X=1845.192mil|Location1.Y=2139.592mil|Location2.Y=2150.842mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad ZQ1-0(21.725mm,30.1mm) on Bottom Layer And Track (21.725mm,26.75mm)(21.725mm,26.125mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3151.099mil|Location2.X=3162.349mil|Location1.Y=2816.698mil|Location2.Y=2827.948mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3151.099mil|Location2.X=3162.349mil|Location1.Y=2816.698mil|Location2.Y=2827.948mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.123mm &lt; 0.254mm) Between Pad ZQ2-1(55.472mm,43.472mm) on Top Layer And Track (52.926mm,42.199mm)(55.401mm,44.674mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.123mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3174.01mil|Location2.X=3185.26mil|Location1.Y=2760.38mil|Location2.Y=2771.63mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3174.01mil|Location2.X=3185.26mil|Location1.Y=2760.38mil|Location2.Y=2771.63mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.123mm &lt; 0.254mm) Between Pad ZQ2-1(55.472mm,43.472mm) on Top Layer And Track (54.199mm,40.926mm)(56.674mm,43.401mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.123mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.868mil|Location2.X=3133.118mil|Location1.Y=2787.467mil|Location2.Y=2798.717mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.868mil|Location2.X=3133.118mil|Location1.Y=2787.467mil|Location2.Y=2798.717mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.123mm &lt; 0.254mm) Between Pad ZQ2-2(54.8mm,42.8mm) on Top Layer And Track (52.926mm,42.199mm)(55.401mm,44.674mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.123mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3150.347mil|Location2.X=3161.597mil|Location1.Y=2736.716mil|Location2.Y=2747.966mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3150.347mil|Location2.X=3161.597mil|Location1.Y=2736.716mil|Location2.Y=2747.966mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.123mm &lt; 0.254mm) Between Pad ZQ2-2(54.8mm,42.8mm) on Top Layer And Track (54.199mm,40.926mm)(56.674mm,43.401mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.123mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3098.205mil|Location2.X=3109.455mil|Location1.Y=2763.804mil|Location2.Y=2775.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3098.205mil|Location2.X=3109.455mil|Location1.Y=2763.804mil|Location2.Y=2775.054mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.123mm &lt; 0.254mm) Between Pad ZQ2-3(54.128mm,42.128mm) on Top Layer And Track (52.926mm,42.199mm)(55.401mm,44.674mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.123mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.116mil|Location2.X=3132.366mil|Location1.Y=2707.486mil|Location2.Y=2718.736mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3121.116mil|Location2.X=3132.366mil|Location1.Y=2707.486mil|Location2.Y=2718.736mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.123mm &lt; 0.254mm) Between Pad ZQ2-3(54.128mm,42.128mm) on Top Layer And Track (54.199mm,40.926mm)(56.674mm,43.401mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.123mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDVPFVJAIDHRK1ESDZKJ2V2O121HYYGPZSAPBU2TBRSTGTCQ0MTCZF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.1mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1555.967mil|Location2.X=1562.736mil|Location1.Y=3186.077mil|Location2.Y=3193.631mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\MEGA\si4735_RX_MIET\si4735_RX_MIET\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1555.967mil|Location2.X=1562.736mil|Location1.Y=3186.077mil|Location2.Y=3193.631mil|Absolute=True">Silk To Silk Clearance Constraint: (0.094mm &lt; 0.1mm) Between Text "VD3" (14.7mm,52.6mm) on Top Overlay And Track (14.45mm,52.3mm)(14.45mm,53.5mm) on Top Overlay Silk Text to Silk Clearance [0.094mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

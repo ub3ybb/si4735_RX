@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=ENC_A Pin=BR?-A
+Removed Pin From Net: NetName=ENC_B Pin=BR?-B
+Removed Pin From Net: NetName=GND Pin=BR?-C
+Change Component Designator: OldDesignator=BR? NewDesignator=BR1
+Change Component Designator: OldDesignator=C? NewDesignator=C21
+Change Component Designator: OldDesignator=R? NewDesignator=R13
+Added Pin To Net: NetName=ENC_A Pin=BR1-A
+Added Pin To Net: NetName=ENC_B Pin=BR1-B
+Added Pin To Net: NetName=GND Pin=BR1-C

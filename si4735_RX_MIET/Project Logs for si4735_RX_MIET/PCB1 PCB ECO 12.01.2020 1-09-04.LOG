@@ -1,0 +1,7 @@
+Change Component Footprint: Designator=XP? Old Footprint=PLS-6 New Footprint=PLD-6
+Change Component Comment : Designator=XP? Old Comment=PLS-06 New Comment=PLD-06
+Added Member To Class: ClassName=Sheet1 Member=Component C4 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component SB2 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB3 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component XP? PLD-06
+Added Room: Name=Sheet1

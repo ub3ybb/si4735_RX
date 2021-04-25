@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=NetC11_1 Pin=ZQ2-1
+Removed Pin From Net: NetName=NetC13_2 Pin=ZQ2-2
+Removed Member From Class: ClassName=Sheet1 Member=ZQ2
+Added Component: Designator=ZQ?(CSTCE)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=NetC11_1 Pin=ZQ?-1
+Added Pin To Net: NetName=GND Pin=ZQ?-2
+Added Pin To Net: NetName=NetC13_2 Pin=ZQ?-3
+Added Member To Class: ClassName=Sheet1 Member=Component BR1 PEC16-4220F-S0024
+Added Member To Class: ClassName=Sheet1 Member=Component C4 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component C5 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component C6 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component SB2 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB3 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component VD3 SS14
+Added Member To Class: ClassName=Sheet1 Member=Component XP4 PLD-06
+Added Member To Class: ClassName=Sheet1 Member=Component ZQ? 16 ֳּצ
+Added Room: Name=Sheet1

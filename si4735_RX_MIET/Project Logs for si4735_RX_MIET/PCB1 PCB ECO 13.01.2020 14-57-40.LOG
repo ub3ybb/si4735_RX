@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=RCLK Pin=XP?-7
+Removed Pin From Net: NetName=SEN Pin=XP?-8
+Removed Pin From Net: NetName=GND Pin=XP?-9
+Removed Pin From Net: NetName=GND Pin=XP?-10
+Added Pin To Net: NetName=GND Pin=XP?-7
+Added Pin To Net: NetName=GND Pin=XP?-8
+Added Pin To Net: NetName=RCLK Pin=XP?-9
+Added Pin To Net: NetName=SEN Pin=XP?-10
+Added Member To Class: ClassName=Sheet1 Member=Component C4 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component C5 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component C6 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component R5 10 ך־ל
+Added Member To Class: ClassName=Sheet1 Member=Component SB2 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB3 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component XP? PLD-10
+Added Room: Name=Sheet1

@@ -1,0 +1,19 @@
+Removed Member From Class: ClassName=Sheet1 Member=XP4
+Added Component: Designator=XP?(PLD-8)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GPO1 Pin=XP?-1
+Added Pin To Net: NetName=GPO2/INT Pin=XP?-2
+Added Pin To Net: NetName=GPO3/DCLK Pin=XP?-3
+Added Pin To Net: NetName=DFS Pin=XP?-4
+Added Pin To Net: NetName=DOUT Pin=XP?-5
+Added Pin To Net: NetName=RST Pin=XP?-6
+Added Pin To Net: NetName=SEN Pin=XP?-7
+Added Pin To Net: NetName=RCLK Pin=XP?-8
+Added Member To Class: ClassName=Sheet1 Member=Component C4 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component C5 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component C6 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component R5 10 ך־ל
+Added Member To Class: ClassName=Sheet1 Member=Component SB2 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB3 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component XP? PLD-08
+Added Room: Name=Sheet1

@@ -1,0 +1,8 @@
+Added Component: Designator=XP?(PLS-6)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=XS1-1
+Added Member To Class: ClassName=Sheet1 Member=Component C4 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component SB2 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB3 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component XP? PLS-06
+Added Room: Name=Sheet1

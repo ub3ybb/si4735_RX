@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=ROUT Pin=XS1-2
+Removed Pin From Net: NetName=ROUT Pin=XS1-3
+Removed Pin From Net: NetName=LOUT Pin=XS1-4
+Removed Pin From Net: NetName=LOUT Pin=XS1-5
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2

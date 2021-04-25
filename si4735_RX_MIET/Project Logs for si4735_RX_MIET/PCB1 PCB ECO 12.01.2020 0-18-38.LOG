@@ -1,0 +1,12 @@
+Added Pin To Net: NetName=GND Pin=XS?-0
+Added Pin To Net: NetName=GND Pin=XS?-0
+Added Pin To Net: NetName=GND Pin=XS?-4
+Added Member To Class: ClassName=Sheet1 Member=Component C4 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component C? 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component HL2 BL-LS0805PGC
+Added Member To Class: ClassName=Sheet1 Member=Component L? 2.2 לךֳם
+Added Member To Class: ClassName=Sheet1 Member=Component R? 680 ־ל
+Added Member To Class: ClassName=Sheet1 Member=Component R? 680 ־ל
+Added Member To Class: ClassName=Sheet1 Member=Component SB2 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB3 KLS7-TS6601
+Added Room: Name=Sheet1

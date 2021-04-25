@@ -1,0 +1,29 @@
+Removed Pin From Net: NetName=UVCH_2_OUT Pin=C15-1
+Removed Pin From Net: NetName=GND Pin=C16-2
+Removed Pin From Net: NetName=GND Pin=C17-2
+Removed Pin From Net: NetName=GND Pin=R10-2
+Removed Pin From Net: NetName=VDD Pin=R14-1
+Removed Pin From Net: NetName=RF Pin=XW1-1
+Removed Pin From Net: NetName=RF Pin=XW1-1
+Removed Pin From Net: NetName=RF Pin=XW1-1
+Removed Pin From Net: NetName=RF Pin=XW1-1
+Removed Pin From Net: NetName=NetC2_2 Pin=XW1-2
+Removed Pin From Net: NetName=RF Pin=XW2-1
+Removed Pin From Net: NetName=RF Pin=XW2-1
+Removed Pin From Net: NetName=RF Pin=XW2-1
+Removed Pin From Net: NetName=RF Pin=XW2-1
+Removed Member From Class: ClassName=RF Member=C8
+Removed Member From Class: ClassName=RF Member=C15
+Removed Member From Class: ClassName=RF Member=C16
+Removed Member From Class: ClassName=RF Member=C17
+Removed Member From Class: ClassName=RF Member=R6
+Removed Member From Class: ClassName=RF Member=R9
+Removed Member From Class: ClassName=RF Member=R10
+Removed Member From Class: ClassName=RF Member=R14
+Removed Member From Class: ClassName=RF Member=VD4
+Removed Member From Class: ClassName=RF Member=XW1
+Removed Member From Class: ClassName=RF Member=XW2
+Added Component: Designator=XW?(HYR-0142AR)
+Added Pin To Net: NetName=GND Pin=XW?-1
+Added Pin To Net: NetName=NetC2_2 Pin=XW?-2
+Added Member To Class: ClassName=RF Member=Component XW? HYR-0142AR

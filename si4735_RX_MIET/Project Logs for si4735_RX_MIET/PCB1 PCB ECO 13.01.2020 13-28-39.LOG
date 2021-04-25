@@ -1,0 +1,23 @@
+Removed Member From Class: ClassName=Sheet1 Member=XP2
+Added Component: Designator=XP?(PLS-5)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=BFO Pin=XP?-3
+Added Pin To Net: NetName=GND Pin=XP?-5
+Added Pin To Net: NetName=RESET Pin=DD1-29
+Added Pin To Net: NetName=RESET Pin=XP?-1
+Added Net: Name=RESET
+Added Pin To Net: NetName=SCK Pin=DD1-17
+Added Pin To Net: NetName=SCK Pin=XP?-2
+Added Net: Name=SCK
+Added Pin To Net: NetName=STEP-MOSI Pin=BR1-D
+Added Pin To Net: NetName=STEP-MOSI Pin=DD1-15
+Added Pin To Net: NetName=STEP-MOSI Pin=XP?-4
+Added Net: Name=STEP-MOSI
+Added Member To Class: ClassName=Sheet1 Member=Component C4 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component C5 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component C6 0,1 לך
+Added Member To Class: ClassName=Sheet1 Member=Component R5 10 ך־ל
+Added Member To Class: ClassName=Sheet1 Member=Component SB2 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB3 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component XP? PLS-05
+Added Room: Name=Sheet1

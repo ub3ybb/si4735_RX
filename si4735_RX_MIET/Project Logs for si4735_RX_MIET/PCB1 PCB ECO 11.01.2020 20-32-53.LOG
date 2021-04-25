@@ -1,0 +1,214 @@
+Removed Pin From Net: NetName=GND Pin=C?-1
+Removed Pin From Net: NetName=GND Pin=C?-2
+Removed Pin From Net: NetName=GND Pin=C?-2
+Removed Pin From Net: NetName=GND Pin=DD?-13
+Removed Pin From Net: NetName=GND Pin=DD?-14
+Removed Pin From Net: NetName=GND Pin=R?-1
+Removed Pin From Net: NetName=GND Pin=R?-1
+Removed Pin From Net: NetName=GND Pin=R?-1
+Removed Pin From Net: NetName=SEN Pin=R?-2
+Change Component Designator: OldDesignator=BR? NewDesignator=BR1
+Change Component Designator: OldDesignator=C? NewDesignator=C1
+Change Component Designator: OldDesignator=C? NewDesignator=C2
+Change Component Designator: OldDesignator=C? NewDesignator=C6
+Change Component Designator: OldDesignator=C? NewDesignator=C7
+Change Component Designator: OldDesignator=C? NewDesignator=C8
+Change Component Designator: OldDesignator=C? NewDesignator=C9
+Change Component Designator: OldDesignator=C? NewDesignator=C10
+Change Component Designator: OldDesignator=C? NewDesignator=C12
+Change Component Designator: OldDesignator=DD? NewDesignator=DD1
+Change Component Designator: OldDesignator=DD? NewDesignator=DD2
+Change Component Designator: OldDesignator=HG? NewDesignator=HG1
+Change Component Designator: OldDesignator=HL? NewDesignator=HL1
+Change Component Designator: OldDesignator=HL? NewDesignator=HL2
+Change Component Designator: OldDesignator=L? NewDesignator=L1
+Change Component Designator: OldDesignator=L? NewDesignator=L2
+Change Component Designator: OldDesignator=R? NewDesignator=R1
+Change Component Designator: OldDesignator=R? NewDesignator=R2
+Change Component Designator: OldDesignator=R? NewDesignator=R3
+Change Component Designator: OldDesignator=R? NewDesignator=R6
+Change Component Designator: OldDesignator=R? NewDesignator=R7
+Change Component Designator: OldDesignator=SB? NewDesignator=SB1
+Change Component Designator: OldDesignator=SB? NewDesignator=SB2
+Change Component Designator: OldDesignator=VD? NewDesignator=VD1
+Change Component Designator: OldDesignator=VD? NewDesignator=VD2
+Change Component Designator: OldDesignator=XP? NewDesignator=XP1
+Change Component Designator: OldDesignator=XP? NewDesignator=XP2
+Change Component Designator: OldDesignator=XS? NewDesignator=XS1
+Change Component Designator: OldDesignator=XS? NewDesignator=XS2
+Change Component Designator: OldDesignator=XW? NewDesignator=XW1
+Change Component Designator: OldDesignator=XW? NewDesignator=XW2
+Change Component Designator: OldDesignator=ZQ? NewDesignator=ZQ1
+Added Component: Designator=C3(C_0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R72A104MA35-01.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Type"; Value = "Capasitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GRM188R72A104MA35D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1µF"; VariantName = "[No Variations]"
+Added Component: Designator=C4(C_0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R72A104MA35-01.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Type"; Value = "Capasitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GRM188R72A104MA35D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1µF"; VariantName = "[No Variations]"
+Added Component: Designator=C5(C_0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R72A104MA35-01.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Type"; Value = "Capasitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GRM188R72A104MA35D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1µF"; VariantName = "[No Variations]"
+Added Component: Designator=C11(C_0805)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C13(C_0805)
+Add component. Clean all parameters for all variants
+Added Component: Designator=SB3(KLS7-TS6601)
+Add component. Clean all parameters for all variants
+Added Component: Designator=SB4(KLS7-TS6601)
+Add component. Clean all parameters for all variants
+Added Component: Designator=SB5(KLS7-TS6601)
+Add component. Clean all parameters for all variants
+Added Component: Designator=SB6(KLS7-TS6601)
+Add component. Clean all parameters for all variants
+Added Component: Designator=SB7(KLS7-TS6601)
+Add component. Clean all parameters for all variants
+Added Component: Designator=ZQ2(HC-49)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=VDD Pin=C3-1
+Added Pin To Net: NetName=VDD Pin=C4-1
+Added Pin To Net: NetName=VDD Pin=C5-1
+Added Pin To Net: NetName=VDD Pin=DD1-4
+Added Pin To Net: NetName=VDD Pin=DD1-6
+Added Pin To Net: NetName=LOUT Pin=DD1-12
+Added Pin To Net: NetName=VDD Pin=DD1-18
+Added Pin To Net: NetName=VDD Pin=DD1-20
+Added Pin To Net: NetName=DOUT Pin=R1-1
+Change Net Name : Old Net Name=GND New Net Name=RF
+Change Net Name : Old Net Name=NetC?_1 New Net Name=NetC10_1
+Change Net Name : Old Net Name=NetC?_2 New Net Name=NetC10_2
+Change Net Name : Old Net Name=NetDD?_2 New Net Name=NetDD2_2
+Added Pin To Net: NetName=AGC Pin=SB6-2
+Added Pin To Net: NetName=AGC Pin=SB6-2
+Added Net: Name=AGC
+Added Pin To Net: NetName=AVC Pin=SB7-2
+Added Pin To Net: NetName=AVC Pin=SB7-2
+Added Net: Name=AVC
+Added Pin To Net: NetName=BAND+ Pin=SB3-2
+Added Pin To Net: NetName=BAND+ Pin=SB3-2
+Added Net: Name=BAND+
+Added Pin To Net: NetName=BAND- Pin=SB4-2
+Added Pin To Net: NetName=BAND- Pin=SB4-2
+Added Net: Name=BAND-
+Added Pin To Net: NetName=ENC_A Pin=BR1-A
+Added Net: Name=ENC_A
+Added Pin To Net: NetName=ENC_B Pin=BR1-B
+Added Net: Name=ENC_B
+Added Pin To Net: NetName=GND Pin=BR1-C
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=GND Pin=C9-1
+Added Pin To Net: NetName=GND Pin=C11-2
+Added Pin To Net: NetName=GND Pin=C13-1
+Added Pin To Net: NetName=GND Pin=DD1-3
+Added Pin To Net: NetName=GND Pin=DD1-5
+Added Pin To Net: NetName=GND Pin=DD1-21
+Added Pin To Net: NetName=GND Pin=DD2-13
+Added Pin To Net: NetName=GND Pin=DD2-14
+Added Pin To Net: NetName=GND Pin=R6-1
+Added Pin To Net: NetName=GND Pin=R7-1
+Added Pin To Net: NetName=GND Pin=SB1-1
+Added Pin To Net: NetName=GND Pin=SB1-1
+Added Pin To Net: NetName=GND Pin=SB2-1
+Added Pin To Net: NetName=GND Pin=SB2-1
+Added Pin To Net: NetName=GND Pin=SB3-1
+Added Pin To Net: NetName=GND Pin=SB3-1
+Added Pin To Net: NetName=GND Pin=SB4-1
+Added Pin To Net: NetName=GND Pin=SB4-1
+Added Pin To Net: NetName=GND Pin=SB5-1
+Added Pin To Net: NetName=GND Pin=SB5-1
+Added Pin To Net: NetName=GND Pin=SB6-1
+Added Pin To Net: NetName=GND Pin=SB6-1
+Added Pin To Net: NetName=GND Pin=SB7-1
+Added Pin To Net: NetName=GND Pin=SB7-1
+Added Net: Name=GND
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=DD2-3
+Added Pin To Net: NetName=NetC1_1 Pin=R3-2
+Added Pin To Net: NetName=NetC1_1 Pin=ZQ1-1
+Added Net: Name=NetC1_1
+Added Pin To Net: NetName=NetC6_2 Pin=C6-2
+Added Pin To Net: NetName=NetC6_2 Pin=DD2-24
+Added Net: Name=NetC6_2
+Added Pin To Net: NetName=NetC7_2 Pin=C7-2
+Added Pin To Net: NetName=NetC7_2 Pin=DD2-23
+Added Net: Name=NetC7_2
+Added Pin To Net: NetName=NetC8_2 Pin=C8-2
+Added Pin To Net: NetName=NetC8_2 Pin=DD2-22
+Added Net: Name=NetC8_2
+Added Pin To Net: NetName=NetC11_1 Pin=C11-1
+Added Pin To Net: NetName=NetC11_1 Pin=DD1-7
+Added Pin To Net: NetName=NetC11_1 Pin=ZQ2-1
+Added Net: Name=NetC11_1
+Added Pin To Net: NetName=NetC12_1 Pin=C12-1
+Added Pin To Net: NetName=NetC12_1 Pin=VD2-3
+Added Pin To Net: NetName=NetC12_1 Pin=XW2-2
+Added Net: Name=NetC12_1
+Added Pin To Net: NetName=NetC12_2 Pin=C12-2
+Added Pin To Net: NetName=NetC12_2 Pin=DD2-12
+Added Pin To Net: NetName=NetC12_2 Pin=L2-2
+Added Net: Name=NetC12_2
+Added Pin To Net: NetName=NetC13_2 Pin=C13-2
+Added Pin To Net: NetName=NetC13_2 Pin=DD1-8
+Added Pin To Net: NetName=NetC13_2 Pin=ZQ2-2
+Added Net: Name=NetC13_2
+Added Pin To Net: NetName=NetDD2_1 Pin=DD2-1
+Added Pin To Net: NetName=NetDD2_1 Pin=R1-2
+Added Net: Name=NetDD2_1
+Added Pin To Net: NetName=STEP Pin=SB5-2
+Added Pin To Net: NetName=STEP Pin=SB5-2
+Added Net: Name=STEP
+Added Pin To Net: NetName=VOL+ Pin=SB1-2
+Added Pin To Net: NetName=VOL+ Pin=SB1-2
+Added Net: Name=VOL+
+Added Pin To Net: NetName=VOL- Pin=SB2-2
+Added Pin To Net: NetName=VOL- Pin=SB2-2
+Added Net: Name=VOL-
+Added Member To Class: ClassName=Sheet1 Member=Component C1 15
+Added Member To Class: ClassName=Sheet1 Member=Component C2 15
+Added Member To Class: ClassName=Sheet1 Member=Component C3 0,1 ÏÍ
+Added Member To Class: ClassName=Sheet1 Member=Component C4 0,1 ÏÍ
+Added Member To Class: ClassName=Sheet1 Member=Component C5 0,1 ÏÍ
+Added Member To Class: ClassName=Sheet1 Member=Component C6 0,1 ÏÍ
+Added Member To Class: ClassName=Sheet1 Member=Component C7 0,1 ÏÍ
+Added Member To Class: ClassName=Sheet1 Member=Component C9 0,1 ÏÍ
+Added Member To Class: ClassName=Sheet1 Member=Component C10 1000
+Added Member To Class: ClassName=Sheet1 Member=Component C11 22
+Added Member To Class: ClassName=Sheet1 Member=Component C12 0,47 ÏÍ
+Added Member To Class: ClassName=Sheet1 Member=Component C13 22
+Added Member To Class: ClassName=Sheet1 Member=Component DD2 Si4735
+Added Member To Class: ClassName=Sheet1 Member=Component HL1 BL-LS0805PGC
+Added Member To Class: ClassName=Sheet1 Member=Component L2 470 ÏÍ√Ì
+Added Member To Class: ClassName=Sheet1 Member=Component R1 590 ŒÏ
+Added Member To Class: ClassName=Sheet1 Member=Component R2 2 ÍŒÏ
+Added Member To Class: ClassName=Sheet1 Member=Component R3 2 ÍŒÏ
+Added Member To Class: ClassName=Sheet1 Member=Component R7 4,7 ÍŒÏ
+Added Member To Class: ClassName=Sheet1 Member=Component SB1 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB3 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB4 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB5 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB6 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB7 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component VD1 BAV99
+Added Member To Class: ClassName=Sheet1 Member=Component XP2 IDC-10
+Added Member To Class: ClassName=Sheet1 Member=Component XS2 KLS1-233-0-0-1-T
+Added Member To Class: ClassName=Sheet1 Member=Component XW1 L-KLS1-SMA001
+Added Member To Class: ClassName=Sheet1 Member=Component ZQ2 HC49S
+Added Room: Name=Sheet1

@@ -1,0 +1,10 @@
+Added Component: Designator=XP?(IDC-10)
+Add component. Clean all parameters for all variants
+Added Member To Class: ClassName=Sheet1 Member=Component DD? ATmega328-AU
+Added Member To Class: ClassName=Sheet1 Member=Component HL? BL-LS0805PGC
+Added Member To Class: ClassName=Sheet1 Member=Component SB? KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB? KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component XP? DS-261B
+Added Member To Class: ClassName=Sheet1 Member=Component XS? KLS1-233-0-0-1-T
+Added Member To Class: ClassName=Sheet1 Member=Component XW? L-KLS1-SMA001
+Added Room: Name=Sheet1

@@ -1,0 +1,74 @@
+Removed Pin From Net: NetName=ENC_A Pin=BR1-A
+Removed Pin From Net: NetName=ENC_B Pin=BR1-B
+Removed Pin From Net: NetName=GND Pin=BR1-C
+Removed Pin From Net: NetName=GND Pin=SB5-1
+Removed Pin From Net: NetName=GND Pin=SB5-1
+Removed Pin From Net: NetName=STEP Pin=SB5-2
+Removed Pin From Net: NetName=STEP Pin=SB5-2
+Removed Member From Class: ClassName=Sheet1 Member=BR1
+Removed Member From Class: ClassName=Sheet1 Member=SB5
+Added Component: Designator=BR?(PEC16-4220F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=BR?(PEC16-4220F)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C5(C_0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R72A104MA35-01.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Type"; Value = "Capasitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GRM188R72A104MA35D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1µF"; VariantName = "[No Variations]"
+Added Component: Designator=C6(C_0603)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R72A104MA35-01.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Component Type"; Value = "Capasitor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GRM188R72A104MA35D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1µF"; VariantName = "[No Variations]"
+Added Component: Designator=DA?(SOT89)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD?(DO-214AC)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD?(DO-214AC)
+Add component. Clean all parameters for all variants
+Added Component: Designator=XP?(DG308-2.54-02P)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=ENC_A Pin=BR?-A
+Added Pin To Net: NetName=ENC_B Pin=BR?-B
+Added Pin To Net: NetName=GND Pin=BR?-C
+Added Pin To Net: NetName=GND Pin=BR?-D
+Added Pin To Net: NetName=STEP Pin=BR?-E
+Added Pin To Net: NetName=VDD Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C6-2
+Added Pin To Net: NetName=VDD Pin=DA?-1
+Added Pin To Net: NetName=GND Pin=DA?-2
+Added Pin To Net: NetName=GND Pin=DA?-2
+Added Pin To Net: NetName=GND Pin=DA?-2
+Added Pin To Net: NetName=GND Pin=XP1-3
+Added Pin To Net: NetName=RF Pin=XP?-1
+Added Pin To Net: NetName=NetC12_1 Pin=XP?-2
+Added Pin To Net: NetName=5V Pin=C5-1
+Added Pin To Net: NetName=5V Pin=C14-2
+Added Pin To Net: NetName=5V Pin=DA?-3
+Added Pin To Net: NetName=5V Pin=DD3-4
+Added Pin To Net: NetName=5V Pin=DD3-20
+Added Pin To Net: NetName=5V Pin=VD?-2
+Added Pin To Net: NetName=5V Pin=VD?-2
+Added Net: Name=5V
+Added Pin To Net: NetName=NetVD?_1 Pin=VD?-1
+Added Pin To Net: NetName=NetVD?_1 Pin=XP1-1
+Added Net: Name=NetVD?_1
+Added Member To Class: ClassName=Sheet1 Member=Component BR? PEC16-4220F-S0024
+Added Member To Class: ClassName=Sheet1 Member=Component BR? PEC16-4220F-S0024
+Added Member To Class: ClassName=Sheet1 Member=Component C4 0,1 ìê
+Added Member To Class: ClassName=Sheet1 Member=Component C5 0,1 ìê
+Added Member To Class: ClassName=Sheet1 Member=Component C6 0,1 ìê
+Added Member To Class: ClassName=Sheet1 Member=Component DA? L78L33
+Added Member To Class: ClassName=Sheet1 Member=Component SB2 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component SB3 KLS7-TS6601
+Added Member To Class: ClassName=Sheet1 Member=Component VD? SS14
+Added Member To Class: ClassName=Sheet1 Member=Component VD? SS14
+Added Member To Class: ClassName=Sheet1 Member=Component XP? PLD-06
+Added Room: Name=Sheet1
